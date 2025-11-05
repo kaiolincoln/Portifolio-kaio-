@@ -29,7 +29,7 @@ export default function Portfolio() {
       setIsMenuOpen(false);
     }
   };
-
+ 
 
   const skills = {
     frontend: [
@@ -44,14 +44,16 @@ export default function Portfolio() {
       { name: 'MySQL', level: 'Básico' },
       { name: 'SQL', level: 'Básico' },
       { name: 'Node.js', level: 'Básico' },
-     { name: 'Supabase', level: 'Básico' }
+      { name: 'Supabase', level: 'Básico' }
     ],
     tools: [
       { name: 'Git/GitHub', level: 'Intermediário' },
       { name: 'VS Code', level: 'Avançado' },
       { name: 'Pacote Office', level: 'Avançado' },
       { name: 'IA', level: 'Intermediário' },
-      { name: 'Ingles', level: 'Basico' }
+      { name: 'Ingles', level: 'Basico' },
+      { name: 'n8n', level: 'Básico' },
+      { name: 'hardware', level: 'Intermediário' },
     ]
   };
 

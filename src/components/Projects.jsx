@@ -15,11 +15,17 @@ import SaaSImg3 from '../assets/SaaS-barber-3.png';
 import SaaSImg4 from '../assets/SaaS-barber-4.png';
 import SaaSImg5 from '../assets/SaaS-barber-5.png';
 import SaaSImg6 from '../assets/SaaS-barber-6.png';
+import AthenaImg1 from '../assets/Athena.png';
+import DevCurrencyImg1 from '../assets/DevCurrency-1.png';
+import DevCurrencyImg2 from '../assets/DevCurrency-2.png';
+
 
 const imagesBySlug = {
   'daly-games': [DalyGamesImg1, DalyGamesImg2, DalyGamesImg3],
   'saas-para-barbearia': [SaaSImg1, SaaSImg2, SaaSImg3, SaaSImg4, SaaSImg5, SaaSImg6],
   'devlink': [DevLinkImg1, DevLinkImg2, DevLinkImg3],
+  'Projetc-Athena': [AthenaImg1],
+  'DevCurrency': [DevCurrencyImg1, DevCurrencyImg2],
 };
 
 export default function Projects() {

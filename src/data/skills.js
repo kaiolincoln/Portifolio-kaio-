@@ -18,7 +18,9 @@ export const skills = {
     { name: 'VS Code', level: 'Avançado' },
     { name: 'Pacote Office', level: 'Avançado' },
     { name: 'IA', level: 'Intermediário' },
-    { name: 'Ingles', level: 'Basico' }
+    { name: 'Ingles', level: 'Basico' },
+    { name: 'n8n', level: 'Básico' },
+    { name: 'hardware', level: 'Intermediário' },
   ]
 };
 

@@ -25,6 +25,24 @@ export const projects = [
     techs: ['HTML', 'TypeScript', 'Tailwind', 'Firebase'],
     images: ['/DevLink.png'],
     repoUrl: 'https://github.com/kaiolincoln/Projeto-links'
+  },
+  {
+    slug: 'Projetc-Athena',
+    title: 'Project Athena',
+    shortDescription:
+      'Projeto Athena Chatbot para aprende outros idiomas e traduzir para o portugues',
+    techs: ['HTML', 'CSS', 'JavaScript', 'Python', 'OpenAI'],
+    images: ['/Athena.png'],
+    repoUrl: 'https://github.com/kaiolincoln/TCC/tree/main/static'
+  },
+  {
+    slug: 'DevCurrency',
+    title: 'DevCurrency',
+    shortDescription:
+      'DevCurrency é uma aplicação de monitoramento de criptomoedas que oferece uma interface intuitiva para acompanhar o mercado.',
+    techs: ['React', 'Tailwind CSS', 'JavaScript', 'API', 'typescript'],
+    images: ['/DevCurrency.png-1.png', '/DevCurrency.png-2.png'],
+    repoUrl: 'https://github.com/kaiolincoln/CriptoApp'
   }
 ];
 
