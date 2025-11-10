@@ -16,8 +16,8 @@ import SaaSImg4 from '../assets/SaaS-barber-4.png';
 import SaaSImg5 from '../assets/SaaS-barber-5.png';
 import SaaSImg6 from '../assets/SaaS-barber-6.png';
 import AthenaImg1 from '../assets/Athena.png';
-import DevCurrencyImg1 from '../assets/DevCurrency-1.png';
-import DevCurrencyImg2 from '../assets/DevCurrency-2.png';
+import DevCurrencyImg1 from '../assets/Devcurrency-1.png';
+import DevCurrencyImg2 from '../assets/Devcurrency-2.png';
 
 
 const imagesBySlug = {
