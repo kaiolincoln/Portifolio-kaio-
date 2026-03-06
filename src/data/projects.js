@@ -43,6 +43,15 @@ export const projects = [
     techs: ['React', 'Tailwind CSS', 'JavaScript', 'API', 'typescript'],
     images: ['/DevCurrency.png-1.png', '/DevCurrency.png-2.png'],
     repoUrl: 'https://github.com/kaiolincoln/CriptoApp'
+  },
+  {
+    slug: 'SystemPizza',
+    title: 'Sistema de Gerenciamento para Pizzaria',  
+    shortDescription:
+      'Sistema completo para gerenciar uma pizzaria, incluindo pedidos, estoque com app do garçom.',
+    techs: ['Expo', 'React', 'TypeScript', 'neondb', ],
+    images: ['/SystemPizza.png'],
+    repoUrl: 'https://github.com/kaiolincoln/Project-Pizzaria'
   }
 ];
 

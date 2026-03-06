@@ -38,13 +38,17 @@ export default function Portfolio() {
       { name: 'JavaScript (ES6+)', level: 'Intermediário' },
       { name: 'React', level: 'Intermediário' },
       { name: 'Bootstrap', level: 'Básico' },
-      { name: 'Tailwind CSS', level: 'Básico' }
+      { name: 'Tailwind CSS', level: 'Básico' },
+      { name: 'typescript', level: 'Avançado' },
     ],
     backend: [
       { name: 'MySQL', level: 'Básico' },
       { name: 'SQL', level: 'Básico' },
       { name: 'Node.js', level: 'Básico' },
-      { name: 'Supabase', level: 'Básico' }
+      { name: 'Supabase', level: 'Básico' },
+      { name: 'Prisma', level: 'Básico' },
+      { name: 'PostgreSQL', level: 'Básico' },
+      { name: 'neondb', level: 'Básico' },
     ],
     tools: [
       { name: 'Git/GitHub', level: 'Intermediário' },
@@ -54,6 +58,7 @@ export default function Portfolio() {
       { name: 'Ingles', level: 'Basico' },
       { name: 'n8n', level: 'Básico' },
       { name: 'hardware', level: 'Intermediário' },
+      { name: 'cursor', level: 'Básico' },
     ]
   };
 

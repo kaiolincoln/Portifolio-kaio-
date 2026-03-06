@@ -18,6 +18,15 @@ import SaaSImg6 from '../assets/SaaS-barber-6.png';
 import AthenaImg1 from '../assets/Athena.png';
 import DevCurrencyImg1 from '../assets/Devcurrency-1.png';
 import DevCurrencyImg2 from '../assets/Devcurrency-2.png';
+import SystemPizzaCategory from '../assets/SystemPizzaCategory.png';
+import SystemPizzaProduct from '../assets/SystemPizzaProduct.png';
+import SystemPizzaGarsom from '../assets/SystemPizzaGarsom.png';
+import SystemPizzaGarsom2 from '../assets/SystemPizzaGarsom2.png';
+import SystemPizzaGarsom3 from '../assets/SystemPizzaGarsom3.png';
+import SystemPizzapedidos from '../assets/SystemPizzapedidos.png';
+import SystemPizzaLogin from '../assets/SystemPizzaLogin.png';
+
+
 
 
 const imagesBySlug = {
@@ -26,6 +35,7 @@ const imagesBySlug = {
   'devlink': [DevLinkImg1, DevLinkImg2, DevLinkImg3],
   'Projetc-Athena': [AthenaImg1],
   'DevCurrency': [DevCurrencyImg1, DevCurrencyImg2],
+  'SystemPizza': [SystemPizzaCategory, SystemPizzaProduct, SystemPizzaGarsom, SystemPizzaGarsom2, SystemPizzaGarsom3, SystemPizzapedidos, SystemPizzaLogin],
 };
 
 export default function Projects() {
