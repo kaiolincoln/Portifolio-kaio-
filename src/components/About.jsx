@@ -1,33 +1,42 @@
 import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import useInView from '../hooks/useInView.jsx';
 
 export default function About() {
+  const [ref, inView] = useInView({ threshold: 0.3 });
+
   return (
-    <section id="sobre" className="py-20 px-4">
+    <section
+      id="sobre"
+      ref={ref}
+      className={`py-20 px-4 transition-all duration-700 ease-out ${
+        inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      }`}
+    >
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold mb-12 text-center">Sobre Mim</h2>
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
-          <p className="text-gray-300 text-lg leading-relaxed mb-6">
+        <div className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
+          <p className=" text-lg leading-relaxed mb-6">
             Desenvolvedor full-stack Jr recém-formado em Engenharia de Computação com sólida base em desenvolvimento web. 
             Tenho experiência prática em suporte técnico e desenvolvimento de software, com foco especial em criar 
             interfaces responsivas e eficientes utilizando tecnologias modernas.
           </p>
-          <p className="text-gray-300 text-lg leading-relaxed mb-6">
+          <p className=" text-lg leading-relaxed mb-6">
             Sou proativo, adaptável e tenho grande facilidade para trabalho em equipe. Estou buscando oportunidades 
             para aplicar e expandir meus conhecimentos em ambientes colaborativos e projetos desafiadores.
           </p>
           <div className="grid md:grid-cols-3 gap-4 mt-8">
             <div className="flex items-center space-x-3">
               <MapPin className="text-cyan-400" size={20} />
-              <span className="text-gray-300">Governador Valadares, MG</span>
+              <span className="text-black dark:text-gray-300">Governador Valadares, MG</span>
             </div>
             <div className="flex items-center space-x-3">
               <Phone className="text-cyan-400" size={20} />
-              <span className="text-gray-300">(15) 9 9718-6612</span>
+              <span className="text-black dark:text-gray-300">(15) 9 9718-6612</span>
             </div>
             <div className="flex items-center space-x-3">
               <Mail className="text-cyan-400" size={20} />
-              <span className="text-gray-300 text-sm">Kaiolincoln2001@hotmail.com</span>
+              <span className="text-black dark:text-gray-300 text-sm">Kaiolincoln2001@hotmail.com</span>
             </div>
           </div>
         </div>

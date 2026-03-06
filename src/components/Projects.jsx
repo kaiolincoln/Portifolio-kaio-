@@ -1,4 +1,5 @@
 import React from 'react';
+import useInView from '../hooks/useInView.jsx';
 import { Code, ExternalLink, Github } from 'lucide-react';
 import { projects } from '../data/projects.js';
 import Carousel from './Carousel.jsx';
@@ -33,7 +34,7 @@ const imagesBySlug = {
   'daly-games': [DalyGamesImg1, DalyGamesImg2, DalyGamesImg3],
   'saas-para-barbearia': [SaaSImg1, SaaSImg2, SaaSImg3, SaaSImg4, SaaSImg5, SaaSImg6],
   'devlink': [DevLinkImg1, DevLinkImg2, DevLinkImg3],
-  'Projetc-Athena': [AthenaImg1],
+  'project-athena': [AthenaImg1],
   'DevCurrency': [DevCurrencyImg1, DevCurrencyImg2],
   'SystemPizza': [SystemPizzaCategory, SystemPizzaProduct, SystemPizzaGarsom, SystemPizzaGarsom2, SystemPizzaGarsom3, SystemPizzapedidos, SystemPizzaLogin],
 };
@@ -44,8 +45,16 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold mb-12 text-center">Projetos</h2>
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project) => (
-            <div key={project.slug} className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
+          {projects.map((project) => {
+            const [ref, inView] = useInView({ threshold: 0.25 });
+            return (
+              <div
+                ref={ref}
+                key={project.slug}
+                className={`bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl transition-transform duration-300 ease-out hover:scale-105 hover:shadow-2xl ${
+                  inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+              >
               <Carousel
                 images={imagesBySlug[project.slug] || project.images}
                 alt={project.title}
@@ -53,7 +62,7 @@ export default function Projects() {
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-2xl font-semibold">{project.title}</h3>
               </div>
-              <p className="text-gray-300 mb-4">{project.shortDescription}</p>
+              <p className="text-black dark:text-gray-300 mb-4">{project.shortDescription}</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.techs.map((t) => (
                   <span key={t} className="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm">{t}</span>
@@ -61,22 +70,17 @@ export default function Projects() {
               </div>
               <div className="flex gap-3">
                 {project.repoUrl && (
-                  <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-full inline-flex items-center gap-2">
+                  <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-slate-500 hover:bg-slate-700 rounded-full inline-flex items-center gap-2 transform transition-transform duration-200 hover:scale-105">
                     <Github size={18} />
                     <span>Repositório</span>
                   </a>
                 )}
-                {project.liveUrl && (
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 rounded-full inline-flex items-center gap-2">
-                    <ExternalLink size={18} />
-                    <span>Demo</span>
-                  </a>
-                )}
               </div>
             </div>
-          ))}
+          );
+          })}
 
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-2 border-dashed border-slate-700 flex items-center justify-center">
+          <div className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-2 border-dashed border-slate-700 flex items-center justify-center">
             <div className="text-center">
               <Code size={48} className="mx-auto mb-4 text-slate-600" />
               <p className="text-gray-500">Mais projetos em breve...</p>

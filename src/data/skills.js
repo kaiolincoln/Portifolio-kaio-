@@ -6,7 +6,7 @@ export const skills = {
     { name: 'React', level: 'Intermediário' },
     { name: 'Bootstrap', level: 'Básico' },
     { name: 'Tailwind CSS', level: 'Básico' },
-    { name: 'typescript', level: 'Avançado' },
+    { name: 'TypeScript', level: 'Avançado' },
   ],
   backend: [
     { name: 'MySQL', level: 'Básico' },
@@ -22,10 +22,10 @@ export const skills = {
     { name: 'VS Code', level: 'Avançado' },
     { name: 'Pacote Office', level: 'Avançado' },
     { name: 'IA', level: 'Intermediário' },
-    { name: 'Ingles', level: 'Basico' },
+    { name: 'Inglês', level: 'Básico' },
     { name: 'n8n', level: 'Básico' },
-    { name: 'hardware', level: 'Intermediário' },
-    { name: 'cursor', level: 'Básico' },
+    { name: 'Hardware', level: 'Intermediário' },
+    { name: 'Cursor', level: 'Básico' },
   ]
 };
 
