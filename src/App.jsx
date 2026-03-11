@@ -59,17 +59,13 @@ export default function Portfolio() {
 
   // theme effect
   useEffect(() => {
-    console.log('🎨 aplicando tema:', theme);
-    console.log('🏷️ classe dark no <html> antes:', document.documentElement.classList.contains('dark'));
     document.documentElement.classList.toggle('dark', theme === 'dark');
-    console.log('🏷️ classe dark no <html> depois:', document.documentElement.classList.contains('dark'));
     localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
     setTheme((t) => {
       const next = t === 'dark' ? 'light' : 'dark';
-      console.log('🔄 tema mudou de', t, 'para', next);
       return next;
     });
   };

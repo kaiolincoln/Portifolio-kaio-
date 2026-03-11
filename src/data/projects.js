@@ -20,6 +20,15 @@ export const projects = [
     liveUrl: 'https://saas-barbearia.example.com'
   },
   {
+    slug: 'SystemPizza',
+    title: 'Sistema de Gerenciamento para Pizzaria',  
+    shortDescription:
+      'Sistema completo para gerenciar uma pizzaria, incluindo pedidos, estoque com app do garçom.',
+    techs: ['Expo', 'React', 'TypeScript', 'neondb', ],
+    images: ['/SystemPizza.png'],
+    repoUrl: 'https://github.com/kaiolincoln/Project-Pizzaria'
+  },
+  {
     slug: 'devlink',
     title: 'DevLink (Linktree-like)',
     shortDescription:
@@ -48,14 +57,15 @@ export const projects = [
     repoUrl: 'https://github.com/kaiolincoln/CriptoApp'
   },
   {
-    slug: 'SystemPizza',
-    title: 'Sistema de Gerenciamento para Pizzaria',  
+    slug: 'Contact',
+    title: 'Contact',
     shortDescription:
-      'Sistema completo para gerenciar uma pizzaria, incluindo pedidos, estoque com app do garçom.',
-    techs: ['Expo', 'React', 'TypeScript', 'neondb', ],
-    images: ['/SystemPizza.png'],
-    repoUrl: 'https://github.com/kaiolincoln/Project-Pizzaria'
+      'Gerenciamento completo de contratos com histórico de alterações Controle de clientes e usuários com níveis de acesso (ADMIN/EDITOR) Upload de documentos anexados aos contratos Alertas automáticos de contratos vencendo nos próximos 30 dias Dashboard com métricas em tempo real Interface responsiva para mobile e desktop',
+    techs: ['React', 'Tailwind CSS', 'JavaScript', 'LocalStorage', 'typescript'],
+    images: ['/Contact1.png', '/Contact2.png', '/Contact3.png', '/Contact4.png', '/Contact5.png', '/Contact6.png'],
+    repoUrl: 'https://github.com/kaiolincoln/Project-Contracted'
   }
+  
 ];
 
 
