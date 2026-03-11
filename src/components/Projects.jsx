@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import useInView from '../hooks/useInView.jsx';
 import { Code, Github } from 'lucide-react';
 import { projects } from '../data/projects.js';
@@ -35,16 +35,19 @@ import Contract5 from '../assets/Contract5.png';
 import Contract6 from '../assets/Contract6.png';
 
 const imagesBySlug = {
-  'daly-games': [DalyGamesImg1, DalyGamesImg2, DalyGamesImg3],
+  'daly-games':          [DalyGamesImg1, DalyGamesImg2, DalyGamesImg3],
   'saas-para-barbearia': [SaaSImg1, SaaSImg2, SaaSImg3, SaaSImg4, SaaSImg5, SaaSImg6],
-  'devlink': [DevLinkImg1, DevLinkImg2, DevLinkImg3],
-  'project-athena': [AthenaImg1],
-  'DevCurrency': [DevCurrencyImg1, DevCurrencyImg2],
-  'SystemPizza': [SystemPizzaCategory, SystemPizzaProduct, SystemPizzaGarsom, SystemPizzaGarsom2, SystemPizzaGarsom3, SystemPizzapedidos, SystemPizzaLogin],
-  'Contact': [Contract1, Contract2, Contract3, Contract4, Contract5, Contract6],
+  'devlink':             [DevLinkImg1, DevLinkImg2, DevLinkImg3],
+  'project-athena':      [AthenaImg1],
+  'DevCurrency':         [DevCurrencyImg1, DevCurrencyImg2],
+  'SystemPizza':         [SystemPizzaCategory, SystemPizzaProduct, SystemPizzaGarsom, SystemPizzaGarsom2, SystemPizzaGarsom3, SystemPizzapedidos, SystemPizzaLogin],
+  'Contact':             [Contract1, Contract2, Contract3, Contract4, Contract5, Contract6],
 };
 
-// Separated card so each can call useInView at the top level (hooks rule)
+const allTechs = ['Todos', ...Array.from(
+  new Set(projects.flatMap((p) => p.techs.map((t) => t.trim())))
+).sort()];
+
 function ProjectCard({ project, onOpen }) {
   const [ref, inView] = useInView({ threshold: 0.2 });
   const images = imagesBySlug[project.slug] || project.images;
@@ -58,23 +61,19 @@ function ProjectCard({ project, onOpen }) {
         ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
       onClick={() => onOpen(project, images)}
     >
-      {/* Carousel */}
       <div className="rounded-t-2xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
         <Carousel images={images} alt={project.title} />
       </div>
 
       <div className="p-6">
-        {/* Title */}
         <h3 className="text-2xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors">
           {project.title}
         </h3>
 
-        {/* Short description — clamp to 3 lines */}
         <p className="text-black dark:text-gray-300 mb-4 text-sm line-clamp-3">
           {project.shortDescription}
         </p>
 
-        {/* Techs */}
         <div className="flex flex-wrap gap-2 mb-4">
           {project.techs.map((t) => (
             <span key={t} className="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm">
@@ -83,8 +82,7 @@ function ProjectCard({ project, onOpen }) {
           ))}
         </div>
 
-        {/* Actions */}
-        <div className="flex gap-3">
+        <div className="flex items-center gap-3">
           {project.repoUrl && (
             <a
               href={project.repoUrl}
@@ -97,10 +95,8 @@ function ProjectCard({ project, onOpen }) {
               Repositório
             </a>
           )}
-
-          {/* "Ver detalhes" hint */}
-          <span className="ml-auto self-center text-xs text-slate-400 group-hover:text-cyan-400 transition-colors">
-            Clique para detalhes →
+          <span className="ml-auto text-xs text-slate-400 group-hover:text-cyan-400 transition-colors">
+            Ver detalhes →
           </span>
         </div>
       </div>
@@ -109,15 +105,43 @@ function ProjectCard({ project, onOpen }) {
 }
 
 export default function Projects() {
-  const [selected, setSelected] = useState(null); // { project, images }
+  const [selected, setSelected]     = useState(null);
+  const [activeTech, setActiveTech] = useState('Todos');
+
+  const filtered = useMemo(() =>
+    activeTech === 'Todos'
+      ? projects
+      : projects.filter((p) =>
+          p.techs.some((t) => t.trim().toLowerCase() === activeTech.toLowerCase())
+        ),
+    [activeTech]
+  );
 
   return (
     <section id="projetos" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12 text-center">Projetos</h2>
+        <h2 className="text-4xl font-bold mb-8 text-center">Projetos</h2>
 
+        {/* Tech filter bar */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
+          {allTechs.map((tech) => (
+            <button
+              key={tech}
+              onClick={() => setActiveTech(tech)}
+              className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200
+                ${activeTech === tech
+                  ? 'bg-cyan-500 border-cyan-500 text-slate-900 scale-105 shadow-md shadow-cyan-500/30'
+                  : 'border-slate-600 text-slate-400 hover:border-cyan-500 hover:text-cyan-400'
+                }`}
+            >
+              {tech}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid */}
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project) => (
+          {filtered.map((project) => (
             <ProjectCard
               key={project.slug}
               project={project}
@@ -125,17 +149,24 @@ export default function Projects() {
             />
           ))}
 
-          {/* Coming soon placeholder */}
-          <div className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-2 border-dashed border-slate-700 flex items-center justify-center">
-            <div className="text-center">
-              <Code size={48} className="mx-auto mb-4 text-slate-600" />
-              <p className="text-gray-500">Mais projetos em breve...</p>
+          {activeTech === 'Todos' && (
+            <div className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-2 border-dashed border-slate-700 flex items-center justify-center">
+              <div className="text-center">
+                <Code size={48} className="mx-auto mb-4 text-slate-600" />
+                <p className="text-gray-500">Mais projetos em breve...</p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
+
+        {filtered.length === 0 && (
+          <div className="text-center py-16 text-slate-500">
+            <Code size={40} className="mx-auto mb-4 opacity-40" />
+            <p>Nenhum projeto encontrado com essa tecnologia.</p>
+          </div>
+        )}
       </div>
 
-      {/* Detail modal */}
       {selected && (
         <ProjectDetail
           project={selected.project}

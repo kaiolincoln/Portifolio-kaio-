@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-import { X, Github, ExternalLink } from 'lucide-react';
+import { X, Github } from 'lucide-react';
 import Carousel from './Carousel.jsx';
 
 const details = {
   'daly-games': {
-    longDescription: `Daly Games é uma aplicação web desenvolvida com Next.js e TypeScript para descobrir, listar e explorar jogos. 
-O projeto foca em componentização limpa e uso eficiente do Tailwind CSS para criar uma interface responsiva e performática.`,
+    longDescription: `Daly Games é uma aplicação web desenvolvida com Next.js e TypeScript para descobrir, listar e explorar jogos.\n\nO projeto foca em componentização limpa e uso eficiente do Tailwind CSS para criar uma interface responsiva e performática.`,
     highlights: [
       'Listagem dinâmica de jogos via API externa',
       'Interface responsiva e acessível',
@@ -15,8 +14,7 @@ O projeto foca em componentização limpa e uso eficiente do Tailwind CSS para c
     challenges: 'Implementar paginação performática e manter o bundle leve com Next.js foi o principal desafio técnico.',
   },
   'saas-para-barbearia': {
-    longDescription: `SaaS completo para gestão de barbearias com múltiplos níveis de acesso (ADMIN_GERAL e BARBERSHOP_ADMIN). 
-Inclui agendamento em tempo real baseado nos horários reais de funcionamento, dashboard interativo e sistema de autenticação robusto com e-mail e senha.`,
+    longDescription: `SaaS completo para gestão de barbearias com múltiplos níveis de acesso (ADMIN_GERAL e BARBERSHOP_ADMIN).\n\nInclui agendamento em tempo real baseado nos horários reais de funcionamento, dashboard interativo e sistema de autenticação robusto com e-mail e senha.`,
     highlights: [
       'Agendamentos baseados em horários reais de funcionamento',
       'Dashboard interativo com métricas e relatórios',
@@ -64,7 +62,7 @@ Inclui agendamento em tempo real baseado nos horários reais de funcionamento, d
       'Busca e filtragem de moedas',
       'Interface responsiva com Tailwind CSS',
     ],
-    challenges: 'Tratar a alta volatilidade dos dados e atualizar a UI sem causar re-renders desnecessários foi o foco de otimização.',
+    challenges: 'Tratar a alta volatilidade dos dados e atualizar a UI sem causar re-renders desnecessários.',
   },
   'Contact': {
     longDescription: `Sistema robusto de gerenciamento de contratos com histórico de alterações, controle de acesso por perfil (ADMIN/EDITOR), upload de documentos e alertas automáticos de vencimento.`,
@@ -94,14 +92,10 @@ export default function ProjectDetail({ project, images, onClose }) {
     };
   }, [onClose]);
 
-  const handleOverlayClick = (e) => {
-    if (e.target === overlayRef.current) onClose();
-  };
-
   return (
     <div
       ref={overlayRef}
-      onClick={handleOverlayClick}
+      onClick={(e) => { if (e.target === overlayRef.current) onClose(); }}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md"
       style={{ animation: 'fadeIn 0.25s ease' }}
     >
@@ -109,13 +103,13 @@ export default function ProjectDetail({ project, images, onClose }) {
         @keyframes fadeIn  { from { opacity: 0 } to { opacity: 1 } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(40px) } to { opacity: 1; transform: translateY(0) } }
         .detail-card { animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both; }
-        .highlight-item { transition: background 0.2s, padding-left 0.2s; }
-        .highlight-item:hover { background: rgba(6,182,212,0.12); padding-left: 1rem; }
+        .hl-item { transition: background 0.2s, padding-left 0.2s; }
+        .hl-item:hover { background: rgba(6,182,212,0.12); padding-left: 1rem; }
       `}</style>
 
       <div className="detail-card relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-slate-900 rounded-3xl shadow-2xl border border-slate-700/60">
 
-        {/* Close */}
+        {/* Close button */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 z-10 p-2 rounded-full bg-slate-800 hover:bg-red-500/80 transition-colors border border-slate-600"
@@ -158,11 +152,8 @@ export default function ProjectDetail({ project, images, onClose }) {
               <h3 className="text-lg font-semibold text-slate-200 mb-3">Principais funcionalidades</h3>
               <ul className="space-y-2">
                 {detail.highlights.map((h, i) => (
-                  <li
-                    key={i}
-                    className="highlight-item flex items-start gap-3 px-3 py-2 rounded-lg cursor-default"
-                  >
-                    <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400 shrink-0" />
+                  <li key={i} className="hl-item flex items-start gap-3 px-3 py-2 rounded-lg cursor-default">
+                    <span className="mt-1.5 w-2 h-2 rounded-full bg-cyan-400 shrink-0" />
                     <span className="text-slate-300 text-sm">{h}</span>
                   </li>
                 ))}
@@ -180,31 +171,18 @@ export default function ProjectDetail({ project, images, onClose }) {
             </div>
           )}
 
-          {/* CTA buttons */}
-          <div className="flex gap-3 pt-2">
-            {project.repoUrl && (
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-slate-700 hover:bg-slate-600 rounded-xl text-sm font-medium transition-colors"
-              >
-                <Github size={16} />
-                Repositório
-              </a>
-            )}
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-cyan-500 hover:bg-cyan-400 text-slate-900 rounded-xl text-sm font-bold transition-colors"
-              >
-                <ExternalLink size={16} />
-                Ver ao vivo
-              </a>
-            )}
-          </div>
+          {/* Repo button */}
+          {project.repoUrl && (
+            <a
+              href={project.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-slate-700 hover:bg-slate-600 rounded-xl text-sm font-medium transition-colors"
+            >
+              <Github size={16} />
+              Ver Repositório
+            </a>
+          )}
         </div>
       </div>
     </div>

@@ -7,65 +7,59 @@ export const projects = [
     techs: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     images: ['/DalyGames.png', '/DalyGames.png'],
     repoUrl: 'https://github.com/kaiolincoln/Daly-Games',
-    liveUrl: 'https://daly-games.example.com'
   },
   {
     slug: 'saas-para-barbearia',
     title: 'SaaS para Barbearia',
     shortDescription:
-      'Dashboard interativo para gestão, Horários de funcionamento reais para agendamentos, Sistema de administração com múltiplos níveis de acesso (ADMIN_GERAL e BARBERSHOP_ADMIN), Sistema de login de E-mail e senha e cadastro, Essas melhorias tornaram o projeto mais robusto, escalável e aplicável ao dia a dia de uma barbearia.',
-    techs: ['Next.js', 'Prisma', 'PostgreSQL', 'Tailwind CSS', 'Shadcn/UI','react','typescript'],
-    images: ['/SaaSparaBarbearia.png', '/SaaSparaBarbearia.png'],
+      'Dashboard interativo para gestão, horários de funcionamento reais para agendamentos, sistema de administração com múltiplos níveis de acesso (ADMIN_GERAL e BARBERSHOP_ADMIN) e sistema de login com e-mail e senha.',
+    techs: ['Next.js', 'Prisma', 'PostgreSQL', 'Tailwind CSS', 'Shadcn/UI', 'React', 'TypeScript'],
+    images: ['/SaaSparaBarbearia.png'],
     repoUrl: 'https://github.com/kaiolincoln/SaaS-para-barbearia-',
-    liveUrl: 'https://saas-barbearia.example.com'
   },
   {
     slug: 'SystemPizza',
-    title: 'Sistema de Gerenciamento para Pizzaria',  
+    title: 'Sistema de Gerenciamento para Pizzaria',
     shortDescription:
-      'Sistema completo para gerenciar uma pizzaria, incluindo pedidos, estoque com app do garçom.',
-    techs: ['Expo', 'React', 'TypeScript', 'neondb', ],
+      'Sistema completo para gerenciar uma pizzaria, incluindo pedidos, estoque e app do garçom.',
+    techs: ['Expo', 'React', 'TypeScript', 'NeonDB'],
     images: ['/SystemPizza.png'],
-    repoUrl: 'https://github.com/kaiolincoln/Project-Pizzaria'
+    repoUrl: 'https://github.com/kaiolincoln/Project-Pizzaria',
   },
   {
     slug: 'devlink',
     title: 'DevLink (Linktree-like)',
     shortDescription:
-      'Página de links personalizada com painel admin (CRUD), auth e redes sociais.',
+      'Página de links personalizada com painel admin (CRUD), autenticação e integração com redes sociais.',
     techs: ['HTML', 'TypeScript', 'Tailwind', 'Firebase'],
     images: ['/DevLink.png'],
-    repoUrl: 'https://github.com/kaiolincoln/Projeto-links'
+    repoUrl: 'https://github.com/kaiolincoln/Projeto-links',
   },
   {
     slug: 'project-athena',
     title: 'Project Athena',
     shortDescription:
-      'Projeto Athena Chatbot para aprende outros idiomas e traduzir para o portugues',
+      'Chatbot educacional para aprender outros idiomas e traduzir para o português, desenvolvido como TCC.',
     techs: ['HTML', 'CSS', 'JavaScript', 'Python', 'OpenAI'],
     images: ['/Athena.png'],
     repoUrl: 'https://github.com/kaiolincoln/TCC/tree/main/static',
-    liveUrl: 'https://chatbot-athena.example.com'
   },
   {
     slug: 'DevCurrency',
     title: 'DevCurrency',
     shortDescription:
-      'DevCurrency é uma aplicação de monitoramento de criptomoedas que oferece uma interface intuitiva para acompanhar o mercado.',
-    techs: ['React', 'Tailwind CSS', 'JavaScript', 'API', 'typescript'],
+      'Aplicação de monitoramento de criptomoedas com interface intuitiva para acompanhar o mercado em tempo real.',
+    techs: ['React', 'Tailwind CSS', 'JavaScript', 'API', 'TypeScript'],
     images: ['/DevCurrency.png-1.png', '/DevCurrency.png-2.png'],
-    repoUrl: 'https://github.com/kaiolincoln/CriptoApp'
+    repoUrl: 'https://github.com/kaiolincoln/CriptoApp',
   },
   {
     slug: 'Contact',
-    title: 'Contact',
+    title: 'Contract Manager',
     shortDescription:
-      'Gerenciamento completo de contratos com histórico de alterações Controle de clientes e usuários com níveis de acesso (ADMIN/EDITOR) Upload de documentos anexados aos contratos Alertas automáticos de contratos vencendo nos próximos 30 dias Dashboard com métricas em tempo real Interface responsiva para mobile e desktop',
-    techs: ['React', 'Tailwind CSS', 'JavaScript', 'LocalStorage', 'typescript'],
+      'Gerenciamento completo de contratos com histórico de alterações, controle de acesso (ADMIN/EDITOR), upload de documentos e alertas de vencimento.',
+    techs: ['React', 'Tailwind CSS', 'TypeScript', 'LocalStorage'],
     images: ['/Contact1.png', '/Contact2.png', '/Contact3.png', '/Contact4.png', '/Contact5.png', '/Contact6.png'],
-    repoUrl: 'https://github.com/kaiolincoln/Project-Contracted'
-  }
-  
+    repoUrl: 'https://github.com/kaiolincoln/Project-Contracted',
+  },
 ];
-
-
