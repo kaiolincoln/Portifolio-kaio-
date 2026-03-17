@@ -33,6 +33,15 @@ import Contract3 from '../assets/Contract3.png';
 import Contract4 from '../assets/Contract4.png';
 import Contract5 from '../assets/Contract5.png';
 import Contract6 from '../assets/Contract6.png';
+import gym1 from '../assets/gym-1.png';
+import gym2 from '../assets/gym-2.png';
+import gym3 from '../assets/gym-3.png';
+import gym4 from '../assets/gym-4.png';
+import gym5 from '../assets/gym-5.png';
+import gym6 from '../assets/gym-6.png';
+import gym7 from '../assets/gym-7.png';
+
+
 
 const imagesBySlug = {
   'daly-games':          [DalyGamesImg1, DalyGamesImg2, DalyGamesImg3],
@@ -42,6 +51,7 @@ const imagesBySlug = {
   'DevCurrency':         [DevCurrencyImg1, DevCurrencyImg2],
   'SystemPizza':         [SystemPizzaCategory, SystemPizzaProduct, SystemPizzaGarsom, SystemPizzaGarsom2, SystemPizzaGarsom3, SystemPizzapedidos, SystemPizzaLogin],
   'Contact':             [Contract1, Contract2, Contract3, Contract4, Contract5, Contract6],
+  'GymFlow':             [gym1, gym2, gym3, gym4, gym5, gym6, gym7],
 };
 
 const allTechs = ['Todos', ...Array.from(

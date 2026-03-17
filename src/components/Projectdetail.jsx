@@ -76,6 +76,19 @@ const details = {
     ],
     challenges: 'Implementar um sistema de histórico imutável usando LocalStorage e gerenciar permissões de forma granular sem backend.',
   },
+  'GymFlow': {
+  longDescription: `Plataforma fullstack de gestão para personal trainers e academias, com controle de alunos, fichas de treino personalizadas, pagamentos automáticos e área exclusiva para o aluno acompanhar sua evolução.`,
+  highlights: [
+    'Autenticação JWT com controle de acesso por perfil (Admin / Personal / Aluno)',
+    'Geração automática de cobranças ao cadastrar aluno por plano (Mensal, Trimestral, Semestral, Anual)',
+    'CRUD completo de fichas de treino com exercícios, séries, repetições e descanso',
+    'Dashboard com métricas em tempo real e gráficos dos últimos 6 meses',
+    'Área do aluno com treino ativo, evolução corporal e histórico de pagamentos',
+    'API REST com 27+ rotas organizadas por domínio (Controller + Service)',
+  ],
+  challenges: 'Modelar um sistema multitenante com roles distintos, garantindo que cada perfil acesse apenas seus recursos, além de implementar a geração automática de parcelas com datas e valores corretos por tipo de plano.',
+},
+
 };
 
 export default function ProjectDetail({ project, images, onClose }) {

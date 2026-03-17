@@ -1,12 +1,12 @@
 export const projects = [
   {
-    slug: 'daly-games',
-    title: 'Daly Games',
+    slug: 'GymFlow',
+    title: 'Gerenciamento de academias ',
     shortDescription:
-      'Aplicação web para descobrir e listar jogos. Interface limpa e funcional, praticando componentização e Tailwind.',
-    techs: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-    images: ['/DalyGames.png', '/DalyGames.png'],
-    repoUrl: 'https://github.com/kaiolincoln/Daly-Games',
+      'Plataforma fullstack de gestão para personal trainers e academias, com controle de alunos, fichas de treino personalizadas, pagamentos automáticos e área exclusiva para o alunos.',
+    techs: ['React', 'Tailwind CSS', 'TypeScript', 'LocalStorage'],
+    images: ['/gym1.png', '/gym2.png', '/gym3.png', '/gym4.png', '/gym5.png', '/gym6.png', '/gym7.png'],
+    repoUrl: 'https://github.com/kaiolincoln/GymFlow',
   },
   {
     slug: 'saas-para-barbearia',
@@ -27,13 +27,13 @@ export const projects = [
     repoUrl: 'https://github.com/kaiolincoln/Project-Pizzaria',
   },
   {
-    slug: 'devlink',
-    title: 'DevLink (Linktree-like)',
+    slug: 'Contact',
+    title: 'Contract Manager',
     shortDescription:
-      'Página de links personalizada com painel admin (CRUD), autenticação e integração com redes sociais.',
-    techs: ['HTML', 'TypeScript', 'Tailwind', 'Firebase'],
-    images: ['/DevLink.png'],
-    repoUrl: 'https://github.com/kaiolincoln/Projeto-links',
+      'Gerenciamento completo de contratos com histórico de alterações, controle de acesso (ADMIN/EDITOR), upload de documentos e alertas de vencimento.',
+    techs: ['React', 'Tailwind CSS', 'TypeScript', 'LocalStorage'],
+    images: ['/Contact1.png', '/Contact2.png', '/Contact3.png', '/Contact4.png', '/Contact5.png', '/Contact6.png'],
+    repoUrl: 'https://github.com/kaiolincoln/Project-Contracted',
   },
   {
     slug: 'project-athena',
@@ -45,6 +45,24 @@ export const projects = [
     repoUrl: 'https://github.com/kaiolincoln/TCC/tree/main/static',
   },
   {
+    slug: 'devlink',
+    title: 'DevLink (Linktree-like)',
+    shortDescription:
+      'Página de links personalizada com painel admin (CRUD), autenticação e integração com redes sociais.',
+    techs: ['HTML', 'TypeScript', 'Tailwind', 'Firebase'],
+    images: ['/DevLink.png'],
+    repoUrl: 'https://github.com/kaiolincoln/Projeto-links',
+  },
+  {
+    slug: 'daly-games',
+    title: 'Daly Games',
+    shortDescription:
+      'Aplicação web para descobrir e listar jogos. Interface limpa e funcional, praticando componentização e Tailwind.',
+    techs: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    images: ['/DalyGames.png', '/DalyGames.png'],
+    repoUrl: 'https://github.com/kaiolincoln/Daly-Games',
+  },
+  {
     slug: 'DevCurrency',
     title: 'DevCurrency',
     shortDescription:
@@ -53,13 +71,6 @@ export const projects = [
     images: ['/DevCurrency.png-1.png', '/DevCurrency.png-2.png'],
     repoUrl: 'https://github.com/kaiolincoln/CriptoApp',
   },
-  {
-    slug: 'Contact',
-    title: 'Contract Manager',
-    shortDescription:
-      'Gerenciamento completo de contratos com histórico de alterações, controle de acesso (ADMIN/EDITOR), upload de documentos e alertas de vencimento.',
-    techs: ['React', 'Tailwind CSS', 'TypeScript', 'LocalStorage'],
-    images: ['/Contact1.png', '/Contact2.png', '/Contact3.png', '/Contact4.png', '/Contact5.png', '/Contact6.png'],
-    repoUrl: 'https://github.com/kaiolincoln/Project-Contracted',
-  },
+
 ];
+
