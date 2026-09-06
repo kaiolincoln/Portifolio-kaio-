@@ -6,3 +6,10 @@
 html {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+section { scroll-margin-top: 5rem; }
+:focus-visible { outline: 3px solid #0891b2; outline-offset: 4px; }
+dialog::backdrop { background: rgb(0 0 0 / 0.7); backdrop-filter: blur(6px); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

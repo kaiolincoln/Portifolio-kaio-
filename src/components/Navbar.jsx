@@ -13,7 +13,7 @@ export default function Navbar({
   const sections = ['home', 'sobre', 'habilidades', 'projetos', 'experiencia', 'contato'];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+    <nav aria-label="Navegação principal" className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       isScrolled
         ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm shadow-lg'
         : 'bg-transparent'
@@ -28,6 +28,7 @@ export default function Navbar({
             {sections.map((section) => (
               <button
                 key={section}
+                aria-current={activeSection === section ? "location" : undefined}
                 onClick={() => onNavigate(section)}
                 className={`capitalize transition-colors ${
                   activeSection === section
@@ -48,16 +49,17 @@ export default function Navbar({
             </button>
           </div>
 
-          <button className="md:hidden flex items-center space-x-2 text-black dark:text-white" onClick={onToggleMenu}>
+          <button className="md:hidden flex items-center space-x-2 text-black dark:text-white" aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={isMenuOpen} aria-controls="mobile-menu" onClick={onToggleMenu}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden pb-4">
+          <div id="mobile-menu" className="md:hidden pb-4">
             {sections.map((section) => (
               <button
                 key={section}
+                aria-current={activeSection === section ? "location" : undefined}
                 onClick={() => onNavigate(section)}
                 className={`block w-full text-left py-2 capitalize transition-colors ${
                   activeSection === section
@@ -74,7 +76,7 @@ export default function Navbar({
                 className="flex items-center space-x-2 py-2 w-full text-black dark:text-white hover:text-cyan-400 transition-colors"
               >
                 {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-                <span>Theme</span>
+                <span>Alternar tema</span>
               </button>
             </div>
           </div>

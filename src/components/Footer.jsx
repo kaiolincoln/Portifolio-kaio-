@@ -11,8 +11,8 @@ export default function Footer() {
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >
-      <div className="max-w-6xl mx-auto text-center text-gray-700 dark:text-gray-400">
-        <p>© 2025 Kaio Lincoln Moreira Rodrigues. Todos os direitos reservados.</p>
+      <div className="max-w-6xl mx-auto text-center text-gray-300">
+        <p>© {new Date().getFullYear()} Kaio Lincoln Moreira Rodrigues. Todos os direitos reservados.</p>
       </div>
     </footer>
   );

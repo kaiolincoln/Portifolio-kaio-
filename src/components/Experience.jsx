@@ -9,7 +9,7 @@ export default function Experience() {
     <section
       id="experiencia"
       ref={ref}
-      className={`py-20 px-4 bg-slate-900/50 transition-all duration-700 ease-out ${
+      className={`py-20 px-4 bg-slate-100/80 dark:bg-slate-900/50 transition-all duration-700 ease-out ${
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >
@@ -70,25 +70,25 @@ export default function Experience() {
             <h4 className="text-xl font-semibold">Cursos Complementares</h4>
           </div>
           <div className="space-y-3">
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
               <p className="text-black dark:text-gray-300">Desenvolvimento Web Completo - Udemy <span className="text-cyan-400 text-sm ml-2">✓ Completo</span></p>
             </div>
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
               <p className="text-black dark:text-gray-300">Bootcamp SaaS para Barbearias - Full Stack Club <span className="text-cyan-400 text-sm ml-2">✓ Completo</span></p>
             </div>
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
               <p className="text-black dark:text-gray-300">Curso de Oratoria - Sest Senat <span className="text-cyan-400 text-sm ml-2">✓ Completo</span></p>
             </div>
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
               <p className="text-black dark:text-gray-300">Curso ingles basico - Sest Senat <span className="text-cyan-400 text-sm ml-2">✓ Completo</span></p>
             </div>
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
               <p className="text-black dark:text-gray-300">Imersao dev Agentes de IA google - Alura <span className="text-cyan-400 text-sm ml-2">✓ Completo</span></p>
             </div>
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
               <p className="text-black dark:text-gray-300">Curso Sujeito Programador <span className="text-yellow-400 text-sm ml-2">⏳ Cursando</span></p>
             </div>
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
               <p className="text-black dark:text-gray-300">Curso De Ingles - Fernando Idiomas <span className="text-yellow-400 text-sm ml-2">⏳ Cursando</span></p>
             </div>
           </div>

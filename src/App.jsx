@@ -14,8 +14,9 @@ export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved) return saved;
+    let saved;
+    try { saved = localStorage.getItem('theme'); } catch { /* Storage may be unavailable. */ }
+    if (saved === 'dark' || saved === 'light') return saved;
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       return 'dark';
     }
@@ -25,7 +26,7 @@ export default function Portfolio() {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
       setActiveSection(sectionId);
       setIsMenuOpen(false);
     }
@@ -37,30 +38,29 @@ export default function Portfolio() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // scroll spy: update activeSection based on visibility
+  // Resolve mounted sections on each scroll, including sections loaded by Suspense.
   useEffect(() => {
-    const ids = ['home', 'sobre', 'habilidades', 'projetos', 'experiencia', 'contato'];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-    ids.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
+    let frame;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const sections = [...document.querySelectorAll('main section[id]')];
+        const current = sections.filter(section => section.getBoundingClientRect().top <= 140).at(-1);
+        if (current) setActiveSection(current.id);
+      });
+    };
+    const mutation = new MutationObserver(update);
+    mutation.observe(document.getElementById('root'), { childList: true, subtree: true });
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+    return () => { mutation.disconnect(); cancelAnimationFrame(frame); window.removeEventListener('scroll', update); window.removeEventListener('resize', update); };
   }, []);
 
   // theme effect
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark');
-    localStorage.setItem('theme', theme);
+    try { localStorage.setItem('theme', theme); } catch { /* Keep the theme in memory. */ }
   }, [theme]);
 
   const toggleTheme = () => {
@@ -75,8 +75,8 @@ export default function Portfolio() {
   );
 
   return (
-    // ✅ CORRETO — só precisa trocar as cores, o gradient-to-br já se aplica nos dois
 <div className="min-h-screen bg-gradient-to-br from-white via-gray-200 to-white dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 text-gray-900 dark:text-white">
+      <a href="#conteudo" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] bg-white text-slate-900 p-3">Pular para o conteúdo</a>
       <Navbar
         isScrolled={isScrolled}
         activeSection={activeSection}
@@ -87,6 +87,7 @@ export default function Portfolio() {
         onToggleTheme={toggleTheme}
       />
 
+      <main id="conteudo" tabIndex={-1}>
       <Hero onContactClick={() => scrollToSection('contato')} />
       <Suspense fallback={<Skeleton />}>
         <About />
@@ -103,6 +104,7 @@ export default function Portfolio() {
       <Suspense fallback={<Skeleton />}>
         <Contact />
       </Suspense>
+      </main>
       <Suspense fallback={<Skeleton />}>
         <Footer />
       </Suspense>

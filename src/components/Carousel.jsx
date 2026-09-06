@@ -11,15 +11,16 @@ export default function Carousel({ images, alt }) {
     <div className="relative">
       <img
         src={images[index]}
-        alt={alt}
-        className="rounded-xl border border-slate-800 mb-4 w-full select-none"
+        alt={`${alt} — imagem ${index + 1} de ${images.length}`}
+        loading="lazy" decoding="async" width="1280" height="800"
+        className="rounded-xl border border-slate-800 w-full aspect-[8/5] object-contain bg-slate-100 dark:bg-slate-950 select-none"
       />
 
       {images.length > 1 && (
         <>
           <button
             type="button"
-            aria-label="Imagem anterior"
+            aria-label={`Imagem anterior de ${alt}`}
             onClick={goPrev}
             className="absolute left-2 top-1/2 -translate-y-1/2 bg-slate-900/60 hover:bg-slate-900/80 border border-slate-700 text-white rounded-full w-9 h-9 flex items-center justify-center"
           >
@@ -27,7 +28,7 @@ export default function Carousel({ images, alt }) {
           </button>
           <button
             type="button"
-            aria-label="Próxima imagem"
+            aria-label={`Próxima imagem de ${alt}`}
             onClick={goNext}
             className="absolute right-2 top-1/2 -translate-y-1/2 bg-slate-900/60 hover:bg-slate-900/80 border border-slate-700 text-white rounded-full w-9 h-9 flex items-center justify-center"
           >

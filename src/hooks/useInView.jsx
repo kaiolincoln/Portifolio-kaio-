@@ -1,27 +1,18 @@
 import { useState, useEffect, useRef } from 'react';
-
-/**
- * Hook that returns a ref and a boolean indicating if that ref is in the viewport.
- * It uses IntersectionObserver under the hood.
- */
-export default function useInView(options) {
+export default function useInView({ threshold = 0.1, rootMargin = '0px' } = {}) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
-
   useEffect(() => {
     if (!ref.current) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setInView(entry.isIntersecting);
-      },
-      { threshold: 0.25, ...options }
-    );
-
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setInView(true);
+      return;
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setInView(true); observer.disconnect(); }
+    }, { threshold, rootMargin });
     observer.observe(ref.current);
-    return () => {
-      observer.disconnect();
-    };
-  }, [options]);
-
+    return () => observer.disconnect();
+  }, [threshold, rootMargin]);
   return [ref, inView];
 }
